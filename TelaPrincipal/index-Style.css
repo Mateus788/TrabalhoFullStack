@@ -1,0 +1,32 @@
+
+        .menu-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(191, 192, 192);
+            padding: 32px;
+            width: 88%;
+            margin: auto;
+            border-radius: 224px;
+        }
+        .menu-icon, .menu-items {
+            display: flex;
+            align-items: center;
+            font-size: 32px;
+            margin-right: 88px;
+            gap: 50px;
+        }
+        .menu-icon {
+            cursor: pointer;
+            margin-left: 50px;
+        }
+        .menu-items img {
+            margin-left: 10px;
+            width: 50px;
+            height: 50px;
+            margin-left: 50px;
+        }
+        body{
+            background-color: rgb(79, 93, 117);
+        }
+        
