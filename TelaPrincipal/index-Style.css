@@ -1,4 +1,6 @@
-
+        body{
+            background-color: rgb(79, 93, 117);
+        }       
         .menu-bar {
             display: flex;
             justify-content: space-between;
@@ -26,7 +28,20 @@
             height: 50px;
             margin-left: 50px;
         }
-        body{
-            background-color: rgb(79, 93, 117);
+        .caixa-calculadora{
+            width: 100%;
+            display: flex;
+            justify-content: end;
+        }
+        .calculadora{
+            margin-top: 75px;
+            margin-right: 5%;
+            width: 200px;
+            padding: 32px;
+            background-color: aliceblue;
+            border-radius: 224px;
+            display: flex;
+            justify-content: center;
+            font-family: fantasy;
         }
         
