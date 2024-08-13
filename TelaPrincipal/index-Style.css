@@ -44,34 +44,56 @@
             display: flex;
             justify-content: center;
             font-family: fantasy;
-            font-size: 16px;
+            font-size: 19px;
             text-align: center;
         }
-        .caixa-lista{
-            width: 100%;
+        main{
             display: flex;
+            width: 100%;
             justify-content: center;
+        }
+        .caixa-lista{
+            display: flex;
+            align-content: center;
+            flex-direction: column;
         }
         .adicinar-lista{
             margin-top: 1px;
-            margin-right: 5%;
             width: 400px;
-            padding: 32px;
+            padding: 8px;
             background-color: aliceblue;
             border-radius: 224px;
             display: flex;
             justify-content: center;
             font-family: fantasy;
-            font-size: 16px;
+            font-size: 24px;
             text-align: center;
         }
-        .add-lista{
+        .button-lista{
+            width: 85px;
             background-color: aliceblue;
             color: green;
             border: none;
-            padding: 32px;
+            padding: 16px;
             border-radius: 32px;
             margin-left: 10px;
             cursor: pointer;
+            font-size: 32px;
         }
-        
+        .button-lixeira{
+            background: none;
+            border: none;
+        }
+
+.div-lista {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin-top: 20px;
+}
+
+.check-lista {
+    width: 44px;
+    height: 44px;
+}
