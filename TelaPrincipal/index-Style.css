@@ -6,7 +6,6 @@
             justify-content: space-between;
             align-items: center;
             background-color: rgb(191, 192, 192);
-            padding: 4px;
             width: 88%;
             margin: auto;
             border-radius: 224px;
@@ -83,6 +82,7 @@
         .button-lixeira{
             background: none;
             border: none;
+            cursor: pointer;
         }
 
         .div-lista {
