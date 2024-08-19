@@ -85,15 +85,14 @@
             border: none;
         }
 
-.div-lista {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+        .div-lista {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+             margin-top: 20px;
+        }
 
-    margin-top: 20px;
-}
-
-.check-lista {
-    width: 44px;
-    height: 44px;
-}
+        .check-lista {
+            width: 44px;
+            height: 44px;
+        }
