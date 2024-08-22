@@ -1,11 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PT-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CheckList</title>
+    <link rel="stylesheet" href="./TelaLogin-Style.css">
 </head>
 <body>
-    
+    <div class="menu-bar">
+        <div class="menu-icon">
+            <img src="../ImagensProjeto/botaoHamburguer.png" alt="Botão Hamburguer" width="64px">
+        </div>
+        <div class="menu-items">
+            <img src="../ImagensProjeto/perfil-de-usuario.png" alt="Imagem do icone de perfil">
+            <img src="../ImagensProjeto/login.png" alt="Imagem do Botão de login">
+        </div>
+    </div>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form>
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
 </body>
 </html>
