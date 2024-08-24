@@ -13,35 +13,23 @@
         </div>
         <div class="menu-items">
             <img src="../ImagensProjeto/perfil-de-usuario.png" alt="Imagem do icone de perfil">
-            <img src="../ImagensProjeto/login.png" alt="Imagem do Botão de login">
+            <img src="../ImagensProjeto/desconecte-se.png" alt="Imagem do Botão de login">
         </div>
     </div>
     <div class="caixa-calculadora">
-            <input type="text" class="calculadora" placeholder="Valor Que Deseja Gastar?">
+        <input type="text" class="calculadora" placeholder="Valor Que Deseja Gastar?">
     </div>
     <main>
         <div class="caixa-lista">
-          <div style="display: flex; flex-direction: row;">
-              <input type="text" class="adicinar-lista" placeholder="O Que Deseja Adicionar?">
-              <button class="button-lista">+</button>
+            <div style="display: flex; flex-direction: row;">
+                <input type="text" id="itemInput" class="adicinar-lista" placeholder="O Que Deseja Adicionar?">
+                <button id="botaoadd" class="button-lista">+</button>
             </div>
-
-            <div class="div-lista">
-                <button class="button-lixeira"><img src="../ImagensProjeto/excluir.png" alt="lixeira" width="40px"></button>
-                <h1 class="adicinar-lista" style="width: 360px;">kkkkkk</h1>
-                <input type="text" class="adicinar-lista" style="width: 100px;">
-                <input type="text" class="adicinar-lista" style="width: 100px;">
-                <input type="checkbox" class="check-lista">
-            </div>
-
-            <div class="div-lista">
-                <button class="button-lixeira"><img src="../ImagensProjeto/excluir.png" alt="lixeira" width="40px"></button>
-                <h1 class="adicinar-lista" style="width: 360px;">MEUZ OVO</h1>
-                <input type="text" class="adicinar-lista" style="width: 100px;">
-                <input type="text" class="adicinar-lista" style="width: 100px;">
-                <input type="checkbox" class="check-lista">
+            <div id="itemList" class="caixa-lista">
+                <!-- Itens serão adicionados aqui -->
             </div>
         </div>
     </main>
+    <script src="./index-Script.js"></script>
 </body>
 </html>
