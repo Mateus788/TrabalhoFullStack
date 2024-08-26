@@ -1,10 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const addButton = document.getElementById('botaoadd'); // Corrigido para corresponder ao ID do botão
+    const addButton = document.getElementById('botaoadd');
     const itemInput = document.getElementById('itemInput');
     const itemList = document.getElementById('itemList');
-
-    // Função para criar um item da lista
-    function createItem(content) {
+    const quantityInput = document.getElementById('quantityInput');
+    const valueInput = document.getElementById('valueInput');
+    const unitInput = document.getElementById('unitInput');
+    const totalValueElement = document.getElementById('totalValue');
+    
+    function createItem(content, quantity = '', value = '', unit = '', checked = false) {
         const div = document.createElement('div');
         div.classList.add('div-lista-item');
 
@@ -13,64 +16,108 @@ document.addEventListener('DOMContentLoaded', () => {
         itemName.style.width = '360px';
         itemName.textContent = content;
 
-        const itemQuantity1 = document.createElement('input');
-        itemQuantity1.type = 'text';
-        itemQuantity1.classList.add('adicinar-lista', 'input-quantidade');
-        itemQuantity1.style.width = '100px';
-        itemQuantity1.style.marginRight = '10px'; // Adiciona margem à direita
-        
-        const itemQuantity2 = document.createElement('input');
-        itemQuantity2.type = 'text';
-        itemQuantity2.classList.add('adicinar-lista', 'input-quantidade');
-        itemQuantity2.style.width = '100px';        
+        if (checked) {
+            itemName.classList.add('tachado');
+        }
+
+        // Adiciona os campos de Quantidade, Valor e Unidade
+        const itemQuantity = document.createElement('input');
+        itemQuantity.type = 'text';
+        itemQuantity.classList.add('adicinar-lista', 'input-quantidade');
+        itemQuantity.style.width = '100px';
+        itemQuantity.value = quantity;
+
+        const itemValue = document.createElement('input');
+        itemValue.type = 'text';
+        itemValue.classList.add('adicinar-lista', 'input-quantidade');
+        itemValue.style.width = '100px';
+        itemValue.value = value;
+
+        const itemUnit = document.createElement('span');
+        itemUnit.textContent = unit;
+        itemUnit.style.marginLeft = '10px';
+        itemUnit.style.fontSize = '16px';
 
         const itemCheckbox = document.createElement('input');
         itemCheckbox.type = 'checkbox';
         itemCheckbox.classList.add('check-lista');
+        itemCheckbox.checked = checked;
+
+        itemCheckbox.addEventListener('change', () => {
+            itemName.classList.toggle('tachado', itemCheckbox.checked);
+            updateLocalStorage();
+            calculateTotal();
+        });
 
         const deleteButton = document.createElement('button');
         deleteButton.classList.add('button-lixeira');
-        deleteButton.innerHTML = '<img src="../ImagensProjeto/excluir.png" alt="lixeira" width="40px">';
+        deleteButton.innerHTML = '<img src="../ImagensProjeto/excluir.png" alt="Excluir item" width="40px">';
         deleteButton.addEventListener('click', () => {
             div.remove();
             updateLocalStorage();
+            calculateTotal();
         });
 
         div.appendChild(deleteButton);
         div.appendChild(itemName);
-        div.appendChild(itemQuantity1);
-        div.appendChild(itemQuantity2);
+        div.appendChild(itemQuantity);
+        div.appendChild(itemValue);
+        div.appendChild(itemUnit);
         div.appendChild(itemCheckbox);
 
         itemList.appendChild(div);
     }
 
-    // Função para atualizar o localStorage
     function updateLocalStorage() {
-        const items = [];
-        document.querySelectorAll('.div-lista-item').forEach(item => {
-            const itemName = item.querySelector('h1').textContent;
-            items.push(itemName);
-        });
+        const items = Array.from(document.querySelectorAll('.div-lista-item')).map(item => ({
+            name: item.querySelector('h1').textContent,
+            quantity: item.querySelector('.input-quantidade').value,
+            value: item.querySelectorAll('.input-quantidade')[1].value,
+            unit: item.querySelector('span').textContent,
+            checked: item.querySelector('input[type="checkbox"]').checked
+        }));
         localStorage.setItem('items', JSON.stringify(items));
     }
 
-    // Função para carregar itens do localStorage
     function loadItems() {
-        const items = JSON.parse(localStorage.getItem('items')) || [];
-        items.forEach(item => createItem(item));
+        try {
+            const items = JSON.parse(localStorage.getItem('items')) || [];
+            items.forEach(({ name, quantity, value, unit, checked }) => createItem(name, quantity, value, unit, checked));
+        } catch (e) {
+            console.error('Erro ao carregar itens do localStorage', e);
+        }
+        calculateTotal();
     }
 
-    // Adicionar novo item
+    function calculateTotal() {
+        let total = 0;
+
+        document.querySelectorAll('.div-lista-item').forEach(item => {
+            const quantity = parseFloat(item.querySelectorAll('.input-quantidade')[0].value) || 0;
+            const value = parseFloat(item.querySelectorAll('.input-quantidade')[1].value) || 0;
+            total += quantity * value;
+    });
+
+        if (totalValueElement) {
+            totalValueElement.textContent = `R$ ${total.toFixed(2)}`;
+        }
+    }
+
     addButton.addEventListener('click', () => {
         const itemContent = itemInput.value.trim();
+        const quantity = quantityInput.value.trim();
+        const value = valueInput.value.trim();
+        const unit = unitInput.value;
+
         if (itemContent) {
-            createItem(itemContent);
+            createItem(itemContent, quantity, value, unit);
             itemInput.value = '';
+            quantityInput.value = '';
+            valueInput.value = '';
             updateLocalStorage();
+            calculateTotal();
         }
     });
 
-    // Carregar itens ao iniciar
     loadItems();
 });

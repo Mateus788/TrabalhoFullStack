@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CheckList</title>
-    <link rel="stylesheet" href="./index-Style.css">
+    <link rel="stylesheet" href="TelaPrincipal/index-Style.css">
 </head>
 <body>
     <div class="menu-bar">
@@ -16,20 +16,29 @@
             <img src="../ImagensProjeto/desconecte-se.png" alt="Imagem do Botão de login">
         </div>
     </div>
-    <div class="caixa-calculadora">
-        <input type="text" class="calculadora" placeholder="Valor Que Deseja Gastar?">
-    </div>
     <main>
         <div class="caixa-lista">
             <div style="display: flex; flex-direction: row;">
                 <input type="text" id="itemInput" class="adicinar-lista" placeholder="O Que Deseja Adicionar?">
                 <button id="botaoadd" class="button-lista">+</button>
             </div>
+            <div class="caixa-calculadora">
+                <input type="number" id="quantityInput" class="calculadora" placeholder="Quantidade" step="any">
+                <input type="number" id="valueInput" class="calculadora" placeholder="Valor por Unidade" step="any">
+                <select id="unitInput" class="calculadora">
+                    <option value="kg">KG</option>
+                    <option value="g">G</option>
+                    <option value="unit">Unidade</option>
+                </select>
+            </div>
             <div id="itemList" class="caixa-lista">
                 <!-- Itens serão adicionados aqui -->
             </div>
+            <div id="totalContainer">
+                <strong>Total: <span id="totalValue">R$ 0.00</span></strong>
+            </div>
         </div>
     </main>
-    <script src="./index-Script.js"></script>
+    <script src="TelaPrincipal/index-Script.js"></script>
 </body>
 </html>

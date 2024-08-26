@@ -39,16 +39,23 @@ body {
 }
 
 .calculadora {
-    width: 100%;
-    max-width: 400px; /* Largura máxima ajustada para um tamanho razoável */
-    padding: 12px;
-    background-color: aliceblue;
+    width: 100px;
+    padding: 8px;
+    margin: 5px;
     border-radius: 24px;
-    text-align: center;
+    background-color: aliceblue;
     font-family: fantasy;
-    font-size: 18px;
+    font-size: 16px;
+    text-align: center;
 }
 
+#quantityInput, #valueInput {
+    width: 120px; /* Ajustar conforme necessário */
+}
+
+#unitInput {
+    width: 120px; /* Ajustar conforme necessário */
+}
 main {
     display: flex;
     flex-direction: column;
@@ -130,4 +137,17 @@ main {
     width: 100px;
     margin-right: 10px; 
     box-sizing: border-box; 
+}
+.tachado {
+    text-decoration: line-through;
+    text-decoration-color: greenyellow;
+}
+#totalContainer {
+    margin-top: 20px;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(191, 192, 192);
+    padding: 10px;
+    border-radius: 24px;
+    text-align: center;
 }
