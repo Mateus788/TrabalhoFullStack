@@ -9,10 +9,11 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: rgb(191, 192, 192);
-    width: 88%;
-    margin: auto;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
     border-radius: 24px;
-    padding: 10px;
+    padding: 10px 20px;
 }
 
 .menu-icon {
@@ -22,7 +23,7 @@ body {
 .menu-items {
     display: flex;
     align-items: center;
-    gap: 20px; /* Espaçamento entre ícones de menu */
+    gap: 20px;
 }
 
 .menu-items img {
@@ -35,7 +36,8 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin: 20px 0; /* Adicionado margem para separar dos outros elementos */
+    margin: 20px 0;
+    flex-wrap: wrap; 
 }
 
 .calculadora {
@@ -49,17 +51,14 @@ body {
     text-align: center;
 }
 
-#quantityInput, #valueInput {
-    width: 120px; /* Ajustar conforme necessário */
+#quantityInput, #valueInput, #unitInput {
+    width: 120px;
 }
 
-#unitInput {
-    width: 120px; /* Ajustar conforme necessário */
-}
 main {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza o conteúdo principal */
+    align-items: center;
     width: 100%;
     padding: 20px 0;
 }
@@ -104,13 +103,12 @@ main {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px 0; 
     padding: 10px;
     background-color: aliceblue;
     border-radius: 24px;
     width: 100%;
-    overflow: hidden; 
+    overflow: hidden;
     box-sizing: border-box;
 }
 
@@ -118,14 +116,12 @@ main {
     display: flex;
     flex-direction: row;
     align-items: center;
-    align-items: center;
-    margin-bottom: 10px; 
+    margin: 0;
     padding: 0;
     background-color: rgb(191, 192, 192);
     border-radius: 24px;
     width: 100%;
     box-sizing: border-box;
-    margin: 0;
 }
 
 .check-lista {
@@ -135,13 +131,15 @@ main {
 
 .input-quantidade {
     width: 100px;
-    margin-right: 10px; 
-    box-sizing: border-box; 
+    margin-right: 10px;
+    box-sizing: border-box;
 }
+
 .tachado {
     text-decoration: line-through;
     text-decoration-color: greenyellow;
 }
+
 #totalContainer {
     margin-top: 20px;
     font-size: 20px;
@@ -150,4 +148,78 @@ main {
     padding: 10px;
     border-radius: 24px;
     text-align: center;
+}
+
+#clearAllContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#clearAllButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: aliceblue;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#clearAllButton img {
+    width: 40px;
+    height: 40px;
+}
+
+@media (max-width: 768px) {
+    .menu-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px; 
+    }
+
+    .menu-items {
+        flex-direction: row; 
+        justify-content: space-between; 
+        width: 100%;
+    }
+
+    .calculadora {
+        width: 80%; 
+        font-size: 14px; 
+    }
+
+    #quantityInput, #valueInput, #unitInput {
+        width: 100%; 
+        margin-bottom: 10px; 
+    }
+
+    .button-lista {
+        width: 30px; 
+        font-size: 18px; 
+    }
+
+    #totalContainer {
+        font-size: 16px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-bar {
+        padding: 5px; 
+    }
+
+    .calculadora {
+        width: 100%; 
+        font-size: 12px; 
+    }
+
+    .adicinar-lista {
+        font-size: 18px;
+    }
+
+    #clearAllButton {
+        font-size: 16px;
+    }
 }

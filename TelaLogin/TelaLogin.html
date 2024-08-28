@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CheckList</title>
+    <title>Login</title>
     <link rel="stylesheet" href="./TelaLogin-Style.css">
 </head>
 <body>
     <div class="menu-bar">
         <div class="menu-icon">
-            <img src="../ImagensProjeto/botaoHamburguer.png" alt="Botão Hamburguer" width="64px">
+            <img src="../ImagensProjeto/CheckList.png" alt="Logo do aplicativo" width="64px">
         </div>
         <div class="menu-items">
             <img src="../ImagensProjeto/perfil-de-usuario.png" alt="Imagem do icone de perfil">
@@ -18,7 +18,7 @@
     </div>
     <div class="login-container">
         <h2>Login</h2>
-        <form>
+        <form id="loginForm">
             <label for="email">E-mail</label>
             <input type="email" id="email" name="email" required>
             <label for="password">Senha</label>
@@ -26,5 +26,7 @@
             <button type="submit">Login</button>
         </form>
     </div>
+
+    <script src="./TelaLogin-Script.js"></script>
 </body>
 </html>

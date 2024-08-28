@@ -9,11 +9,14 @@
 <body>
     <div class="menu-bar">
         <div class="menu-icon">
-            <img src="../ImagensProjeto/botaoHamburguer.png" alt="Botão Hamburguer" width="64px">
+            <img src="../ImagensProjeto/CheckList.png" alt="Logo do aplicativo" width="64px">
         </div>
         <div class="menu-items">
+            <span id="welcomeMessage"></span>
             <img src="../ImagensProjeto/perfil-de-usuario.png" alt="Imagem do icone de perfil">
-            <img src="../ImagensProjeto/desconecte-se.png" alt="Imagem do Botão de login">
+            <a href="TelaCadastro/TelaCadastro.html">
+                <img src="../ImagensProjeto/desconecte-se.png" alt="Imagem do Botão de login">
+            </a>
         </div>
     </div>
     <main>
@@ -33,6 +36,12 @@
             </div>
             <div id="itemList" class="caixa-lista">
                 <!-- Itens serão adicionados aqui -->
+            </div>
+            <div id="clearAllContainer">
+                <button id="clearAllButton" class="button-lixeira">
+                    <img src="../ImagensProjeto/excluir.png" alt="Excluir todos os itens" width="40px">
+                    Apagar Sua Lista
+                </button>
             </div>
             <div id="totalContainer">
                 <strong>Total: <span id="totalValue">R$ 0.00</span></strong>

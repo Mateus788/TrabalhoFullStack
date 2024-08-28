@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CheckList</title>
+    <title>Cadastro</title>
     <link rel="stylesheet" href="./TelaCadastro-Style.css">
 </head>
 <body>
     <div class="menu-bar">
         <div class="menu-icon">
-            <img src="../ImagensProjeto/botaoHamburguer.png" alt="Botão Hamburguer" width="64px">
+            <img src="../ImagensProjeto/CheckList.png" alt="Logo do aplicativo" width="64px">
         </div>
         <div class="menu-items">
             <img src="../ImagensProjeto/perfil-de-usuario.png" alt="Imagem do icone de perfil">
@@ -17,8 +17,8 @@
         </div>
     </div>
     <div class="login-container">
-        <h2>Login</h2>
-        <form>
+        <h2>Cadastro</h2>
+        <form id="cadastroForm">
             <label for="email">E-mail</label>
             <input type="email" id="email" name="email" required>
             <label for="confirm-email">Confirmar E-mail</label>
@@ -27,8 +27,10 @@
             <input type="password" id="password" name="password" required>
             <label for="confirm-password">Confirmar Senha</label>
             <input type="password" id="confirm-password" name="confirm-password" required> 
-            <button type="submit">Login</button>
+            <a href="./TelaLogin/TelaLogin.html"><button type="submit">Cadastrar</button> </a>
         </form>
     </div>
+
+    <script src="./TelaCadastro-Script.js"></script>
 </body>
 </html>

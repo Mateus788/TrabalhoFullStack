@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const valueInput = document.getElementById('valueInput');
     const unitInput = document.getElementById('unitInput');
     const totalValueElement = document.getElementById('totalValue');
-    
+    const clearAllButton = document.getElementById('clearAllButton');
+    const welcomeMessage = localStorage.getItem('welcomeMessage');
+
     function createItem(content, quantity = '', value = '', unit = '', checked = false) {
         const div = document.createElement('div');
         div.classList.add('div-lista-item');
@@ -19,6 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (checked) {
             itemName.classList.add('tachado');
         }
+
+        clearAllButton.addEventListener('click', () => {
+                itemList.innerHTML = ''; // Remove todos os itens da lista
+                localStorage.removeItem('items'); // Limpa o LocalStorage
+                calculateTotal(); // Atualiza o total para 0
+        });
 
         // Adiciona os campos de Quantidade, Valor e Unidade
         const itemQuantity = document.createElement('input');
@@ -118,6 +126,10 @@ document.addEventListener('DOMContentLoaded', () => {
             calculateTotal();
         }
     });
+
+    if (welcomeMessage) {
+        document.getElementById('welcomeMessage').textContent = welcomeMessage;
+    }
 
     loadItems();
 });
