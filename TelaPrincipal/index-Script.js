@@ -12,51 +12,53 @@ document.addEventListener('DOMContentLoaded', () => {
     function createItem(content, quantity = '', value = '', unit = '', checked = false) {
         const div = document.createElement('div');
         div.classList.add('div-lista-item');
-
+    
         const itemName = document.createElement('h1');
         itemName.classList.add('adicinar-lista');
         itemName.style.width = '360px';
         itemName.textContent = content;
-
+    
         if (checked) {
             itemName.classList.add('tachado');
         }
-
+    
         clearAllButton.addEventListener('click', () => {
                 itemList.innerHTML = ''; // Remove todos os itens da lista
                 localStorage.removeItem('items'); // Limpa o LocalStorage
                 calculateTotal(); // Atualiza o total para 0
         });
-
+    
         // Adiciona os campos de Quantidade, Valor e Unidade
         const itemQuantity = document.createElement('input');
-        itemQuantity.type = 'text';
+        itemQuantity.type = 'number';
         itemQuantity.classList.add('adicinar-lista', 'input-quantidade');
         itemQuantity.style.width = '100px';
-        itemQuantity.value = quantity;
-
+        itemQuantity.value = quantity || ''; // Se não houver quantidade, deixa em branco
+        itemQuantity.placeholder = 'Quantidade'; // Placeholder padrão
+    
         const itemValue = document.createElement('input');
-        itemValue.type = 'text';
+        itemValue.type = 'number';
         itemValue.classList.add('adicinar-lista', 'input-quantidade');
         itemValue.style.width = '100px';
-        itemValue.value = value;
-
+        itemValue.value = value || ''; // Se não houver valor, deixa em branco
+        itemValue.placeholder = 'Valor'; // Placeholder padrão
+    
         const itemUnit = document.createElement('span');
         itemUnit.textContent = unit;
         itemUnit.style.marginLeft = '10px';
         itemUnit.style.fontSize = '16px';
-
+    
         const itemCheckbox = document.createElement('input');
         itemCheckbox.type = 'checkbox';
         itemCheckbox.classList.add('check-lista');
         itemCheckbox.checked = checked;
-
+    
         itemCheckbox.addEventListener('change', () => {
             itemName.classList.toggle('tachado', itemCheckbox.checked);
             updateLocalStorage();
             calculateTotal();
         });
-
+    
         const deleteButton = document.createElement('button');
         deleteButton.classList.add('button-lixeira');
         deleteButton.innerHTML = '<img src="ImagensProjeto/excluir.png" alt="Excluir item" width="40px">';
@@ -65,16 +67,16 @@ document.addEventListener('DOMContentLoaded', () => {
             updateLocalStorage();
             calculateTotal();
         });
-
+    
         div.appendChild(deleteButton);
         div.appendChild(itemName);
         div.appendChild(itemQuantity);
         div.appendChild(itemValue);
         div.appendChild(itemUnit);
         div.appendChild(itemCheckbox);
-
+    
         itemList.appendChild(div);
-    }
+    }    
 
     function updateLocalStorage() {
         const items = Array.from(document.querySelectorAll('.div-lista-item')).map(item => ({
