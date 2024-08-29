@@ -1,10 +1,19 @@
+:root {
+    --background-color: rgb(79, 93, 117);
+    --menu-background: rgb(191, 192, 192);
+    --button-background: aliceblue;
+    --button-text-color: green;
+    --font-family: Arial, sans-serif;
+}
+
 body {
-    background-color: rgb(79, 93, 117);
+    background-color: var(--background-color);
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: var(--font-family);
 }
 
 .menu-bar {
+    background-color: var(--menu-background);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -82,6 +91,8 @@ main {
 }
 
 .button-lista {
+    background-color: var(--button-background);
+    color: var(--button-text-color);
     width: 50px;
     background-color: aliceblue;
     color: green;

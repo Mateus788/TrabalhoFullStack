@@ -74,6 +74,13 @@ body {
     cursor: pointer;
 }
 
+#registerButton {
+    background-color: #4CAF50; 
+    margin-top: 10px; 
+
+
+}
+
 @media (max-width: 768px) {
     .login-container {
         width: 90%; 
