@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const deleteButton = document.createElement('button');
         deleteButton.classList.add('button-lixeira');
-        deleteButton.innerHTML = '<img src="../ImagensProjeto/excluir.png" alt="Excluir item" width="40px">';
+        deleteButton.innerHTML = '<img src="ImagensProjeto/excluir.png" alt="Excluir item" width="40px">';
         deleteButton.addEventListener('click', () => {
             div.remove();
             updateLocalStorage();
