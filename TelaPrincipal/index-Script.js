@@ -9,6 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const clearAllButton = document.getElementById('clearAllButton');
     const welcomeMessage = localStorage.getItem('welcomeMessage');
 
+    function escapeHTML(text) {
+        return text.replace(/[&<>"']/g, (char) => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+        })[char]);
+    }
+
     function createItem(content, quantity = '', value = '', unit = '', checked = false) {
         const div = document.createElement('div');
         div.classList.add('div-lista-item');
@@ -16,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const itemName = document.createElement('h1');
         itemName.classList.add('adicinar-lista');
         itemName.style.width = '360px';
-        itemName.textContent = content;
+        itemName.textContent = escapeHTML(content);
     
         if (checked) {
             itemName.classList.add('tachado');
@@ -28,23 +38,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 calculateTotal(); // Atualiza o total para 0
         });
     
-        // Adiciona os campos de Quantidade, Valor e Unidade
         const itemQuantity = document.createElement('input');
         itemQuantity.type = 'number';
         itemQuantity.classList.add('adicinar-lista', 'input-quantidade');
         itemQuantity.style.width = '100px';
-        itemQuantity.value = quantity || ''; // Se não houver quantidade, deixa em branco
-        itemQuantity.placeholder = 'Quantidade'; // Placeholder padrão
+        itemQuantity.value = quantity || ''; 
+        itemQuantity.placeholder = 'Quantidade';
     
         const itemValue = document.createElement('input');
         itemValue.type = 'number';
         itemValue.classList.add('adicinar-lista', 'input-quantidade');
         itemValue.style.width = '100px';
-        itemValue.value = value || ''; // Se não houver valor, deixa em branco
-        itemValue.placeholder = 'Valor'; // Placeholder padrão
+        itemValue.value = value || ''; 
+        itemValue.placeholder = 'Valor';
     
         const itemUnit = document.createElement('span');
-        itemUnit.textContent = unit;
+        itemUnit.textContent = escapeHTML(unit);
         itemUnit.style.marginLeft = '10px';
         itemUnit.style.fontSize = '16px';
     
@@ -106,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const quantity = parseFloat(item.querySelectorAll('.input-quantidade')[0].value) || 0;
             const value = parseFloat(item.querySelectorAll('.input-quantidade')[1].value) || 0;
             total += quantity * value;
-    });
+        });
 
         if (totalValueElement) {
             totalValueElement.textContent = `R$ ${total.toFixed(2)}`;
@@ -130,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (welcomeMessage) {
-        document.getElementById('welcomeMessage').textContent = welcomeMessage;
+        document.getElementById('welcomeMessage').textContent = escapeHTML(welcomeMessage);
     }
 
     loadItems();
