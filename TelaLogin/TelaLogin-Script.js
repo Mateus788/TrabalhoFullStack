@@ -10,7 +10,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     if (email === storedEmail && password === storedPassword) {
         alert('Login realizado com sucesso!');
         
-        localStorage.setItem('welcomeMessage', `Bem-vindo, ${escapeHTML(email.split('@')[0])}!`);
+        localStorage.setItem('welcomeMessage', `Bem-vindo, ${(email.split('@')[0])}!`);
         
         window.location.href = '../index.html';
     } else {
