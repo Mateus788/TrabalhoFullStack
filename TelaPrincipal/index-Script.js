@@ -9,6 +9,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const clearAllButton = document.getElementById('clearAllButton');
     const welcomeMessage = localStorage.getItem('welcomeMessage');
 
+    // Função para esconder/mostrar as listas de itens ao clicar nas categorias
+    document.querySelectorAll('.category').forEach(category => {
+        category.addEventListener('click', () => {
+            const categoryName = category.getAttribute('data-category');
+            const itemList = document.getElementById(`${categoryName}-items`);
+            itemList.style.display = itemList.style.display === 'none' || itemList.style.display === '' ? 'block' : 'none';
+        });
+    });
+
+     // Função para adicionar item da categoria à lista
+     document.querySelectorAll('.add-item').forEach(button => {
+        button.addEventListener('click', () => {
+            const itemName = button.getAttribute('data-item');
+            createItem(itemName);
+            updateLocalStorage();
+            calculateTotal();
+        });
+    });
+
     function escapeHTML(text) {
         return text.replace(/[&<>"']/g, (char) => ({
             '&': '&amp;',

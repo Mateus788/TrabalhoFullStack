@@ -13,13 +13,57 @@
         </div>
         <div class="menu-items">
             <span id="welcomeMessage"></span>
-            <img src="ImagensProjeto/perfil-de-usuario.png" alt="Imagem do icone de perfil">
+            <img src="ImagensProjeto/perfil-de-usuario.png" alt="Imagem do ícone de perfil">
             <a href="TelaLogin/TelaLogin.html">
                 <img src="ImagensProjeto/desconecte-se.png" alt="Imagem do Botão de login">
             </a>
         </div>
     </div>
+
+    <div class="side-menu">
+        <div class="category" data-category="sobremesas">Sobremesas</div>
+        <div class="item-list" id="sobremesas-items">
+            <button class="add-item" data-item="Sorvete">Sorvete</button>
+            <button class="add-item" data-item="Pudim">Pudim</button>
+            <button class="add-item" data-item="Torta">Torta Mineira</button>
+            <button class="add-item" data-item="Bolo">Bolo De Cenoura Com Chocolate</button>
+        </div>
+
+        <div class="category" data-category="frios">Frios</div>
+        <div class="item-list" id="frios-items">
+            <button class="add-item" data-item="Queijo">Queijo</button>
+            <button class="add-item" data-item="Presunto">Presunto</button>
+            <button class="add-item" data-item="Iogurte">Iogurte</button>
+            <button class="add-item" data-item="Leite Fermentado">Leite Fermentado</button>
+        </div>
+
+        <div class="category" data-category="bebidas">Bebidas</div>
+        <div class="item-list" id="bebidas-items">
+            <button class="add-item" data-item="Suco">Suco</button>
+            <button class="add-item" data-item="Refrigerante">Refrigerante</button>
+            <button class="add-item" data-item="Cerveja">Cerveja</button>
+            <button class="add-item" data-item="Vinho">Vinho</button>
+        </div>
+
+        <div class="category" data-category="carnes">Carnes</div>
+        <div class="item-list" id="carnes-items">
+            <button class="add-item" data-item="Carne de Frango">Peito Sem Osso</button>
+            <button class="add-item" data-item="Carne de Frango">Peito Com Osso</button>
+            <button class="add-item" data-item="Carne de Frango">Coxa Temperada</button>
+            <button class="add-item" data-item="Carne de Frango">Linguiça De Frango</button>
+            <button class="add-item" data-item="Carne Bovina">Paleta 7</button>
+            <button class="add-item" data-item="Carne Bovina">Alcatra Com Maminha</button>
+            <button class="add-item" data-item="Carne Bovina">Picanha Bovina</button>
+            <button class="add-item" data-item="Carne Bovina">Entrecote</button>
+            <button class="add-item" data-item="Carne Suina">Picanha Suina</button>
+            <button class="add-item" data-item="Carne Suina">Linguiça Suina</button>
+            <button class="add-item" data-item="Carne Suina">Bisteca Suina</button>
+            <button class="add-item" data-item="Carne Suina">Lombo Suino</button>
+        </div>
+    </div>
+
     <main>
+        <!-- Conteúdo principal, incluindo a lista de compras -->
         <div class="caixa-lista">
             <div style="display: flex; flex-direction: row;">
                 <input type="text" id="itemInput" class="adicinar-lista" placeholder="O Que Deseja Adicionar?">
