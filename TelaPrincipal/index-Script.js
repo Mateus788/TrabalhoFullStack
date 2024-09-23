@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sublista.addEventListener("click", mostrarMenu);
 
-    // Função para esconder/mostrar as listas de itens ao clicar nas categorias
     document.querySelectorAll('.category').forEach(category => {
         category.addEventListener('click', () => {
             const categoryName = category.getAttribute('data-category');
@@ -30,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-     // Função para adicionar item da categoria à lista
      document.querySelectorAll('.add-item').forEach(button => {
         button.addEventListener('click', () => {
             const itemName = button.getAttribute('data-item');
