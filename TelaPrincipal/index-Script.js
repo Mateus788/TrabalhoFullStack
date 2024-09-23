@@ -8,6 +8,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalValueElement = document.getElementById('totalValue');
     const clearAllButton = document.getElementById('clearAllButton');
     const welcomeMessage = localStorage.getItem('welcomeMessage');
+    const sublista = document.getElementById('sublista');
+    const sidemenu = document.getElementsByClassName('side-menu');
+
+    function mostrarMenu(){
+        if (sidemenu[0].style.display === "none"){
+            sidemenu[0].style.display = "block";
+        }else{
+            sidemenu[0].style.display = "none";
+        }
+    }
+
+    sublista.addEventListener("click", mostrarMenu);
 
     // Função para esconder/mostrar as listas de itens ao clicar nas categorias
     document.querySelectorAll('.category').forEach(category => {
