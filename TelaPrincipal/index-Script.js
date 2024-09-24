@@ -62,9 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     
         clearAllButton.addEventListener('click', () => {
-                itemList.innerHTML = ''; // Remove todos os itens da lista
-                localStorage.removeItem('items'); // Limpa o LocalStorage
-                calculateTotal(); // Atualiza o total para 0
+                itemList.innerHTML = ''; 
+                localStorage.removeItem('items'); 
+                calculateTotal();
         });
     
         const itemQuantity = document.createElement('input');
