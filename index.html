@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="menu-bar">
-        <div class="menu-icon">
+        <div class="menu-icon"  id="hamburger-menu">
             <img src="ImagensProjeto/CheckList.png" alt="Logo do aplicativo" width="64px">
         </div>
         <div class="menu-items">
@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <div class="side-menu">
+    <div class="side-menu" id="sideMenu">
         <div class="category" data-category="sobremesas">Sobremesas</div>
         <div class="item-list" id="sobremesas-items">
             <button class="add-item" data-item="Sorvete">Sorvete</button>
@@ -61,9 +61,7 @@
             <button class="add-item" data-item="Carne Suina">Lombo Suino</button>
         </div>
     </div>
-
     <main>
-        <!-- Conteúdo principal, incluindo a lista de compras -->
         <div class="caixa-lista">
             <div style="display: flex; flex-direction: row;">
                 <input type="text" id="itemInput" class="adicinar-lista" placeholder="O Que Deseja Adicionar?">
