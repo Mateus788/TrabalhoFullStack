@@ -8,8 +8,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalValueElement = document.getElementById('totalValue');
     const clearAllButton = document.getElementById('clearAllButton');
     const welcomeMessage = localStorage.getItem('welcomeMessage');
+    const sublista = document.getElementById('sublista');
+    const sidemenu = document.getElementsByClassName('side-menu');
 
-    // Função para esconder/mostrar as listas de itens ao clicar nas categorias
+    function mostrarMenu(){
+        if (sidemenu[0].style.display === "none"){
+            sidemenu[0].style.display = "block";
+        }else{
+            sidemenu[0].style.display = "none";
+        }
+    }
+
+    sublista.addEventListener("click", mostrarMenu);
+
     document.querySelectorAll('.category').forEach(category => {
         category.addEventListener('click', () => {
             const categoryName = category.getAttribute('data-category');
@@ -18,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-     // Função para adicionar item da categoria à lista
      document.querySelectorAll('.add-item').forEach(button => {
         button.addEventListener('click', () => {
             const itemName = button.getAttribute('data-item');
@@ -52,9 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     
         clearAllButton.addEventListener('click', () => {
-                itemList.innerHTML = ''; // Remove todos os itens da lista
-                localStorage.removeItem('items'); // Limpa o LocalStorage
-                calculateTotal(); // Atualiza o total para 0
+                itemList.innerHTML = ''; 
+                localStorage.removeItem('items'); 
+                calculateTotal();
         });
     
         const itemQuantity = document.createElement('input');
